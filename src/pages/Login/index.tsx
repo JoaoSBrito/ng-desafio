@@ -28,7 +28,7 @@ export function Login() {
       alert("login");
       setLoading(false);
     } catch (error) {
-      alert("Algo deu errado" + error);
+      alert("Algo deu errado " + error);
     }
   };
 

@@ -4,7 +4,7 @@ export default class UserServices {
   axios: any;
   constructor() {
     this.axios = axios.create({
-      baseURL: import.meta.env.REACT_APP_LOGIN_API,
+      baseURL: process.env.REACT_APP_LOGIN_API
     });
 
     async (dados: any) => {
