@@ -4,10 +4,10 @@ import { validatePassword, validateUser } from "../../utils/validations";
 import { ContainerSignUp, LoginContainer, LoginForm } from "./styles";
 import UserService from "../../services/UserServices";
 
-interface FormProps {
-  username: string;
-  password: string;
-}
+// interface FormProps {
+//   username: string;
+//   password: string;
+// }
 
 const userService = new UserService();
 
@@ -19,23 +19,22 @@ export function Login() {
     event.preventDefault();
     try {
       setLoading(true);
-      const response = await userService.axios(form);
-      console.log("response do login", response);
-
+      const response = await userService.login(form);
+      console.log("response do Login", response);
       if (response === true) {
-        alert("logado com sucesso");
+        alert("usuário Logado com Sucesso");
+        // navigate('/home')
       }
-      alert("login");
       setLoading(false);
-    } catch (error) {
-      alert("Algo deu errado " + error);
+    } catch (err) {
+      alert("Algo deu errado com o Login" + err);
     }
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log("Digitando", event.target.name, event.target.value);
+    // console.log("Digitando", event.target.name, event.target.value);
     setForm({ ...form, [event.target.name]: event.target.value });
-    console.log("Form", form);
+    // console.log("Form", form);
   };
 
   const inputIsValid = () => {
